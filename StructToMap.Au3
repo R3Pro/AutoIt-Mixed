@@ -6,13 +6,13 @@
 
 
 $_expTag = "USHORT major;" & _
-									"USHORT    minor;" &  _
-									"USHORT micro;" &  _
-									"USHORT  nano;" &  _
-									"ptr   rc   [25];" &  _ ; Just an unusual example
-                  "Char   Type[8];" &  _
-                  "int[4];" &  _
-									"ptr describe"
+	   "USHORT    minor;" &  _
+	   "USHORT micro;" &  _
+	   "USHORT  nano;" &  _
+	   "ptr   rc   [25];" &  _ ; Just an unusual example
+           "Char   Type[8];" &  _
+           "int[4];" &  _
+	   "ptr describe"
 $_exp =  DllStructCreate($_expTag)
 
 
@@ -25,7 +25,9 @@ DllStructSetData($_exp,7,'1995')
 
 $sMap = StructToMap($_exp,$_expTag)
 
-MsgBox(0,VarGetType($sMap),$sMap.major & @CRLF &$sMap.minor & @CRLF & $sMap.micro & @CRLF & $sMap.nano & @CRLF & $sMap.rc & @CRLF & $sMap.Type & @CRLF & $sMap.Element7 & @CRLF & $sMap.describe)
+MsgBox(0,VarGetType($sMap),$sMap.major & @CRLF &$sMap.minor & @CRLF & _
+			   $sMap.micro & @CRLF & $sMap.nano & @CRLF & $sMap.rc & @CRLF & _
+			   $sMap.Type & @CRLF & $sMap.Element7 & @CRLF & $sMap.describe)
 
 
 Func StructToMap($Struct,$Tag_Struct)
